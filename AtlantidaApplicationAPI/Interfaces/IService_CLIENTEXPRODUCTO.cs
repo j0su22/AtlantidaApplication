@@ -1,0 +1,12 @@
+﻿using AtlantidaApplicationAPI.Models;
+
+namespace AtlantidaApplicationAPI.Interfaces
+{
+    public interface IService_CLIENTEXPRODUCTO
+    {
+        Task<List<CLIENTEXPRODUCTO>> CLIENTEXPRODUCTO_SELECT(CLIENTEXPRODUCTO model);
+        Task<List<CLIENTEXPRODUCTO>> CLIENTEXPRODUCTO_INSERT(CLIENTEXPRODUCTO model);
+        Task<List<CLIENTEXPRODUCTO>> CLIENTEXPRODUCTO_UPDATE(CLIENTEXPRODUCTO model);
+        Task<List<CLIENTEXPRODUCTO>> CLIENTEXPRODUCTO_DELETE(CLIENTEXPRODUCTO model);
+    }
+}
