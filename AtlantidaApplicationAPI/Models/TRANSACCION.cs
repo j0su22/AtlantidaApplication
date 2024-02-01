@@ -13,5 +13,6 @@ namespace AtlantidaApplicationAPI.Models
         public DateTime? fechahora { get; set; }
         public SqlMoney? monto { get; set; }
         public string? descripcion { get; set; }
+        public string estado { get; set; }
     }
 }

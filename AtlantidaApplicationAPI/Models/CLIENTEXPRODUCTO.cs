@@ -11,5 +11,6 @@ namespace AtlantidaApplicationAPI.Models
         public DateTime? fchaprobacion { get; set; }
         public SqlMoney? saldoaprobado { get; set; }
         public SqlMoney? saldodisponible { get; set; }
+        public string estado { get; set; }
     }
 }

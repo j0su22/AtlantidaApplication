@@ -12,13 +12,15 @@ CREATE TABLE AGENCIA(
 	nombre VARCHAR(100) NOT NULL,
 	direccion VARCHAR(500),
 	telefono VARCHAR(8),
-	extension VARCHAR(5)
+	extension VARCHAR(5),
+	estado CHAR(3) DEFAULT('A') NOT NULL
 );
 
 CREATE TABLE CARGO(
 	id INT IDENTITY(1,1) PRIMARY KEY,
 	nombre VARCHAR(100) NOT NULL,
-	descripcion VARCHAR(500)
+	descripcion VARCHAR(500),
+	estado CHAR(3) DEFAULT('A') NOT NULL
 );
 
 CREATE TABLE PERSONA(
@@ -28,7 +30,8 @@ CREATE TABLE PERSONA(
 	apellidos VARCHAR(50) NOT NULL,
 	correo VARCHAR(100),
 	telefono VARCHAR(8),
-	fchnacimiento DATE NOT NULL
+	fchnacimiento DATE NOT NULL,
+	estado CHAR(3) DEFAULT('A') NOT NULL
 );
 
 CREATE TABLE EJECUTIVO(
@@ -37,14 +40,16 @@ CREATE TABLE EJECUTIVO(
 	usuario VARCHAR(100) UNIQUE NOT NULL,
 	contrasena VARCHAR(100) NOT NULL,
 	idagencia INT,
-	idcargo INT
+	idcargo INT,
+	estado CHAR(3) DEFAULT('A') NOT NULL
 );
 
 CREATE TABLE CLIENTE(
 	id INT IDENTITY(1,1) PRIMARY KEY,
 	idpersona INT NOT NULL,
 	usuario VARCHAR(100) UNIQUE NOT NULL,
-	contrasena VARCHAR(100) NOT NULL
+	contrasena VARCHAR(100) NOT NULL,
+	estado CHAR(3) DEFAULT('A') NOT NULL
 );
 
 CREATE TABLE PRODUCTO(
@@ -55,7 +60,8 @@ CREATE TABLE PRODUCTO(
 	ptjinteres FLOAT,
 	ptjsaldominimo FLOAT,
 	rngminimo INT,
-	rngmaximo INT
+	rngmaximo INT,
+	estado CHAR(3) DEFAULT('A') NOT NULL
 );
 
 CREATE TABLE CLIENTEXPRODUCTO(
@@ -66,6 +72,7 @@ CREATE TABLE CLIENTEXPRODUCTO(
 	fchaprobacion DATETIME,
 	saldoaprobado MONEY,
 	saldodisponible MONEY,
+	estado CHAR(3) DEFAULT('A') NOT NULL
 
 	CONSTRAINT PK_CLIENTEXPRODUCTO PRIMARY KEY (id, idcliente, idproducto)
 );
@@ -74,7 +81,8 @@ CREATE TABLE TIPOTRANSACCION(
 	id INT IDENTITY(1,1) PRIMARY KEY,
 	codigo VARCHAR(20) UNIQUE NOT NULL,
 	nombre VARCHAR(100),
-	descripcion VARCHAR(500)
+	descripcion VARCHAR(500),
+	estado CHAR(3) DEFAULT('A') NOT NULL
 );
 
 CREATE TABLE TRANSACCION(
@@ -86,7 +94,8 @@ CREATE TABLE TRANSACCION(
 	idagencia INT,
 	fechahora DATETIME,
 	monto MONEY,
-	descripcion VARCHAR(500)
+	descripcion VARCHAR(500),
+	estado CHAR(3) DEFAULT('A') NOT NULL
 );
 
 GO

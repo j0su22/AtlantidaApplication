@@ -8,5 +8,6 @@
         public string contrasena { get; set; }
         public int? idagencia { get; set; }
         public int? idcargo { get; set; }
+        public string estado { get; set; }
     }
 }

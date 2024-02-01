@@ -10,5 +10,6 @@
         public float? ptjsaldominimo { get; set; }
         public int? rngminimo { get; set; }
         public int? rngmaximo { get; set; }
+        public string estado { get; set; }
     }
 }

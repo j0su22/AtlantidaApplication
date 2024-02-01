@@ -9,5 +9,6 @@
         public string? correo { get; set; }
         public string? telefono { get; set; }
         public DateOnly fchnacimiento { get; set; }
+        public string estado { get; set; }
     }
 }
