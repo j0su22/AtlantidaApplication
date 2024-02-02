@@ -55,6 +55,22 @@ namespace AtlantidaApplicationAPI.Services
                         ).ToListAsync();
                         break;
 
+                    case "CLIGTO":
+                        result = await _dataContext.TRANSACCION.Where(s =>
+                            s.estado != "E"
+                            && s.idtipotransaccion == 1
+                            && s.idcliente == int.Parse(FILTRO)
+                        ).ToListAsync();
+                        break;
+
+                    case "CLIING":
+                        result = await _dataContext.TRANSACCION.Where(s =>
+                            s.estado != "E"
+                            && s.idtipotransaccion == 2
+                            && s.idcliente == int.Parse(FILTRO)
+                        ).ToListAsync();
+                        break;
+
                     case "EJE":
                         result = await _dataContext.TRANSACCION.Where(s =>
                             s.estado != "E"

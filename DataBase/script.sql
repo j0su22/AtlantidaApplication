@@ -31,6 +31,7 @@ CREATE TABLE PERSONA(
 	correo VARCHAR(100),
 	telefono VARCHAR(8),
 	fchnacimiento DATETIME NOT NULL,
+	flgejecutivo CHAR(3) DEFAULT('N') NOT NULL,
 	estado CHAR(3) DEFAULT('A') NOT NULL
 );
 

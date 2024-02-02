@@ -35,9 +35,17 @@ namespace AtlantidaApplicationAPI.Services
                         ).ToListAsync();
                         break;
 
-                    case "NAME":
+                    case "CLI":
                         result = await _dataContext.PERSONA.Where(s =>
                             s.estado != "E"
+                            && s.flgejecutivo == "N"
+                        ).ToListAsync();
+                        break;
+
+                    case "CLINAME":
+                        result = await _dataContext.PERSONA.Where(s =>
+                            s.estado != "E"
+                            && s.flgejecutivo == "N"
                             && s.nombres.Contains(FILTRO.Trim())
                         ).ToListAsync();
                         break;
