@@ -9,7 +9,6 @@ namespace AtlantidaApplicationAPI.Services
 
         public DbSet<AGENCIA> AGENCIA { get; set; }
         public DbSet<CARGO> CARGO { get; set; }
-        public DbSet<CLIENTE> CLIENTE { get; set; }
         public DbSet<CLIENTEXPRODUCTO> CLIENTEXPRODUCTO { get; set; }
         public DbSet<EJECUTIVO> EJECUTIVO { get; set; }
         public DbSet<PERSONA> PERSONA { get; set; }
@@ -23,7 +22,6 @@ namespace AtlantidaApplicationAPI.Services
 
             modelBuilder.Entity<AGENCIA>().ToTable("AGENCIA").HasKey(p => new { p.id });
             modelBuilder.Entity<CARGO>().ToTable("CARGO").HasKey(p => new { p.id });
-            modelBuilder.Entity<CLIENTE>().ToTable("CLIENTE").HasKey(p => new { p.id });
             modelBuilder.Entity<CLIENTEXPRODUCTO>().ToTable("CLIENTEXPRODUCTO").HasKey(p => new { p.id });
             modelBuilder.Entity<EJECUTIVO>().ToTable("EJECUTIVO").HasKey(p => new { p.id });
             modelBuilder.Entity<PERSONA>().ToTable("PERSONA").HasKey(p => new { p.id });
