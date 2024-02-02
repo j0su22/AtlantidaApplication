@@ -6,11 +6,11 @@ namespace AtlantidaApplicationAPI.Controllers
 {
     [Route("[controller]/api")]
     [ApiController]
-    public class CARGO_Controller : ControllerBase
+    public class CARGOController : ControllerBase
     {
         private readonly IService_CARGO _service;
 
-        public CARGO_Controller(IService_CARGO service)
+        public CARGOController(IService_CARGO service)
         {
             _service = service;
         }

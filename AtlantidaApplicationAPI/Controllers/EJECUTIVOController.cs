@@ -6,11 +6,11 @@ namespace AtlantidaApplicationAPI.Controllers
 {
     [Route("[controller]/api")]
     [ApiController]
-    public class PERSONA_Controller : ControllerBase
+    public class EJECUTIVOController : ControllerBase
     {
-        private readonly IService_PERSONA _service;
+        private readonly IService_EJECUTIVO _service;
 
-        public PERSONA_Controller(IService_PERSONA service)
+        public EJECUTIVOController(IService_EJECUTIVO service)
         {
             _service = service;
         }
@@ -20,11 +20,11 @@ namespace AtlantidaApplicationAPI.Controllers
         #region SELECT TODO
         [HttpPost]
         [Route("Get")]
-        public async Task<ActionResult<List<PERSONA>>> PERSONA_SELECT_TODO(PERSONA model)
+        public async Task<ActionResult<List<EJECUTIVO>>> EJECUTIVO_SELECT_TODO(EJECUTIVO model)
         {
             try
             {
-                var exit = await _service.PERSONA_SELECT(model, "CLI", "");
+                var exit = await _service.EJECUTIVO_SELECT(model, "TODO", "");
 
                 if (exit.Any())
                 {
@@ -45,14 +45,14 @@ namespace AtlantidaApplicationAPI.Controllers
         }
         #endregion
 
-        #region SELECT CLIENTE
+        #region SELECT EJECUTIVO
         [HttpPost]
-        [Route("GetCliente")]
-        public async Task<ActionResult<List<PERSONA>>> PERSONA_SELECT_UNO(PERSONA model)
+        [Route("GetEjecutivo")]
+        public async Task<ActionResult<List<EJECUTIVO>>> EJECUTIVO_SELECT_UNO(EJECUTIVO model)
         {
             try
             {
-                var exit = await _service.PERSONA_SELECT(model, "ID", model.id.ToString());
+                var exit = await _service.EJECUTIVO_SELECT(model, "ID", model.id.ToString());
 
                 if (exit.Any())
                 {

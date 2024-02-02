@@ -6,11 +6,11 @@ namespace AtlantidaApplicationAPI.Controllers
 {
     [Route("[controller]/api")]
     [ApiController]
-    public class TIPOTRANSACCION_Controller : ControllerBase
+    public class TIPOTRANSACCIONController : ControllerBase
     {
         private readonly IService_TIPOTRANSACCION _service;
 
-        public TIPOTRANSACCION_Controller(IService_TIPOTRANSACCION service)
+        public TIPOTRANSACCIONController(IService_TIPOTRANSACCION service)
         {
             _service = service;
         }
