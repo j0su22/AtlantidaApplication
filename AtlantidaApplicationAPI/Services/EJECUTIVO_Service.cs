@@ -35,20 +35,6 @@ namespace AtlantidaApplicationAPI.Services
                         ).ToListAsync();
                         break;
 
-                    case "NAME":
-                        result = await _dataContext.EJECUTIVO.Where(s =>
-                            s.estado != "E"
-                            && s.nombres.Contains(FILTRO.Trim())
-                        ).ToListAsync();
-                        break;
-
-                    case "USU":
-                        result = await _dataContext.EJECUTIVO.Where(s =>
-                            s.estado != "E"
-                            && s.usuario == FILTRO
-                        ).ToListAsync();
-                        break;
-
                     default:
                         result = await _dataContext.EJECUTIVO.Where(s =>
                             s.estado != "E"
@@ -85,25 +71,13 @@ namespace AtlantidaApplicationAPI.Services
         {
             try
             {
-                var ejecutivo = await _dataContext.EJECUTIVO.FirstOrDefaultAsync(s =>
-                    s.idejecutivo == model.id
+                var result = await _dataContext.EJECUTIVO.FirstOrDefaultAsync(s =>
+                    s.id == model.id
                 );
 
-                var person = await _dataContext.PERSONA.FirstOrDefaultAsync(s =>
-                    s.id == model.idpersona
-                );
-
-                person.dui = model.dui;
-                person.nombres = model.nombres;
-                person.apellidos = model.apellidos;
-                person.correo = model.correo;
-                person.telefono = model.telefono;
-                person.fchnacimiento = model.fchnacimiento;
-                person.estado = model.estado;
-
-                ejecutivo.idagencia = model.idagencia;
-                ejecutivo.idcargo = model.idcargo;
-                ejecutivo.subestado = model.subestado;
+                result.idagencia = model.idagencia;
+                result.idcargo = model.idcargo;
+                result.estado = model.estado;
 
                 return await _dataContext.SaveChangesAsync();
             }
@@ -120,7 +94,7 @@ namespace AtlantidaApplicationAPI.Services
             try
             {
                 var ejecutivo = await _dataContext.EJECUTIVO.FirstOrDefaultAsync(s =>
-                    s.idejecutivo == model.id
+                    s.id == model.id
                 );
 
                 var person = await _dataContext.PERSONA.FirstOrDefaultAsync(s =>
@@ -128,7 +102,6 @@ namespace AtlantidaApplicationAPI.Services
                 );
 
                 person.estado = "E";
-                ejecutivo.subestado = "E";
 
                 return await _dataContext.SaveChangesAsync();
             }

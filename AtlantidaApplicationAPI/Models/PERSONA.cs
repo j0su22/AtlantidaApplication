@@ -8,7 +8,7 @@
         public string apellidos { get; set; }
         public string? correo { get; set; }
         public string? telefono { get; set; }
-        public DateOnly fchnacimiento { get; set; }
+        public DateTime fchnacimiento { get; set; }
         public string estado { get; set; }
     }
 }

@@ -30,16 +30,16 @@ CREATE TABLE PERSONA(
 	apellidos VARCHAR(50) NOT NULL,
 	correo VARCHAR(100),
 	telefono VARCHAR(8),
-	fchnacimiento DATE NOT NULL,
+	fchnacimiento DATETIME NOT NULL,
 	estado CHAR(3) DEFAULT('A') NOT NULL
 );
 
 CREATE TABLE EJECUTIVO(
-	idejecutivo INT IDENTITY(1,1) PRIMARY KEY,
+	id INT IDENTITY(1,1) PRIMARY KEY,
 	idpersona INT NOT NULL,
 	idagencia INT,
 	idcargo INT,
-	subestado CHAR(3) DEFAULT('A') NOT NULL
+	estado CHAR(3) DEFAULT('A') NOT NULL
 );
 
 CREATE TABLE PRODUCTO(
@@ -60,8 +60,8 @@ CREATE TABLE CLIENTEXPRODUCTO(
 	idproducto INT NOT NULL,
 	fchsolicitud DATETIME,
 	fchaprobacion DATETIME,
-	saldoaprobado MONEY,
-	saldodisponible MONEY,
+	saldoaprobado FLOAT,
+	saldodisponible FLOAT,
 	estado CHAR(3) DEFAULT('A') NOT NULL
 
 	CONSTRAINT PK_CLIENTEXPRODUCTO PRIMARY KEY (id, idcliente, idproducto)
@@ -83,7 +83,7 @@ CREATE TABLE TRANSACCION(
 	idproducto INT NOT NULL,
 	idagencia INT,
 	fechahora DATETIME,
-	monto MONEY,
+	monto FLOAT,
 	descripcion VARCHAR(500),
 	estado CHAR(3) DEFAULT('A') NOT NULL
 );
