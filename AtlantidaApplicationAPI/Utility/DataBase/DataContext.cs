@@ -23,6 +23,8 @@ namespace AtlantidaApplicationAPI.Services
             modelBuilder.Entity<AGENCIA>().ToTable("AGENCIA").HasKey(p => new { p.id });
             modelBuilder.Entity<CARGO>().ToTable("CARGO").HasKey(p => new { p.id });
             modelBuilder.Entity<CLIENTEXPRODUCTO>().ToTable("CLIENTEXPRODUCTO").HasKey(p => new { p.id });
+            modelBuilder.Entity<CLIENTEXPRODUCTO>().Ignore(p => p.cliente);
+            modelBuilder.Entity<CLIENTEXPRODUCTO>().Ignore(p => p.producto);
             modelBuilder.Entity<EJECUTIVO>().ToTable("EJECUTIVO").HasKey(p => new { p.id });
             modelBuilder.Entity<PERSONA>().ToTable("PERSONA").HasKey(p => new { p.id });
             modelBuilder.Entity<PRODUCTO>().ToTable("PRODUCTO").HasKey(p => new { p.id });

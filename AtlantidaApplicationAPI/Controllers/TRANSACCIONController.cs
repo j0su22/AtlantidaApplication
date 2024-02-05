@@ -185,14 +185,14 @@ namespace AtlantidaApplicationAPI.Controllers
         }
         #endregion
 
-        #region INSERT TRANSACCION
+        #region INSERT TRANSACCION GTO
         [HttpPost]
         [Route("InsertGto")]
         public async Task<ActionResult<List<TRANSACCION>>> TRANSACCION_INSERT_GTO(TRANSACCION model)
         {
             try
             {
-                model.idtipotransaccion = 1;
+                model.idtipotransaccion = 2;
                 var exit = await _service.TRANSACCION_INSERT(model);
 
                 if (exit > 0)
@@ -214,14 +214,14 @@ namespace AtlantidaApplicationAPI.Controllers
         }
         #endregion
 
-        #region INSERT TRANSACCION
+        #region INSERT TRANSACCION ING
         [HttpPost]
         [Route("InsertIng")]
         public async Task<ActionResult<List<TRANSACCION>>> TRANSACCION_INSERT_ING(TRANSACCION model)
         {
             try
             {
-                model.idtipotransaccion = 2;
+                model.idtipotransaccion = 1;
                 var exit = await _service.TRANSACCION_INSERT(model);
 
                 if (exit > 0)

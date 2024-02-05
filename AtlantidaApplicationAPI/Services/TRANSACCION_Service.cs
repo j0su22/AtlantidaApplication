@@ -7,10 +7,12 @@ namespace AtlantidaApplicationAPI.Services
     public class TRANSACCION_Service : IService_TRANSACCION
     {
         private readonly DataContext _dataContext;
+        private readonly IService_CLIENTEXPRODUCTO _cliProduct;
 
-        public TRANSACCION_Service(DataContext dataContext)
+        public TRANSACCION_Service(DataContext dataContext, IService_CLIENTEXPRODUCTO cliProduct)
         {
             _dataContext = dataContext;
+            _cliProduct = cliProduct;
         }
 
         #region SELECT
@@ -58,7 +60,7 @@ namespace AtlantidaApplicationAPI.Services
                     case "CLIGTO":
                         result = await _dataContext.TRANSACCION.Where(s =>
                             s.estado != "E"
-                            && s.idtipotransaccion == 1
+                            && s.idtipotransaccion == 2
                             && s.idcliente == int.Parse(FILTRO)
                         ).ToListAsync();
                         break;
@@ -66,7 +68,7 @@ namespace AtlantidaApplicationAPI.Services
                     case "CLIING":
                         result = await _dataContext.TRANSACCION.Where(s =>
                             s.estado != "E"
-                            && s.idtipotransaccion == 2
+                            && s.idtipotransaccion == 1
                             && s.idcliente == int.Parse(FILTRO)
                         ).ToListAsync();
                         break;
@@ -127,8 +129,72 @@ namespace AtlantidaApplicationAPI.Services
         {
             try
             {
-                _dataContext.TRANSACCION.Add(model);
-                return await _dataContext.SaveChangesAsync();
+                int salida = 0;
+
+                if (model.idtipotransaccion == 1 || model.idtipotransaccion == 2)
+                {
+                    var modelCXP = new CLIENTEXPRODUCTO { };
+                    var data = await _cliProduct.CLIENTEXPRODUCTO_SELECT(modelCXP, "CLI", model.idcliente.ToString());
+
+                    var dataFiltered = data.FirstOrDefault(s => s.idproducto == model.idproducto);
+
+                    switch (model.idtipotransaccion)
+                    {
+                        case 1:
+                            {
+                                if (dataFiltered != null)
+                                {
+                                    if (dataFiltered.saldodisponible < dataFiltered.saldoaprobado)
+                                    {
+                                        _dataContext.TRANSACCION.Add(model);
+                                        dataFiltered.saldodisponible += model.monto;
+                                        await _dataContext.SaveChangesAsync();
+                                        salida = 1;
+                                    }
+                                    else
+                                    {
+                                        salida = 2;
+                                    }
+                                }
+                                else
+                                {
+                                    salida = 2;
+                                }
+
+                                break;
+                            }
+
+                        case 2:
+                            {
+                                if (dataFiltered != null)
+                                {
+                                    if (dataFiltered.saldodisponible >= model.monto)
+                                    {
+                                        _dataContext.TRANSACCION.Add(model);
+                                        dataFiltered.saldodisponible -= model.monto;
+                                        await _dataContext.SaveChangesAsync();
+                                        salida = 1;
+                                    }
+                                    else
+                                    {
+                                        salida = 2;
+                                    }
+                                }
+                                else
+                                {
+                                    salida = 2;
+                                }
+
+                                break;
+                            }
+                    }
+                }
+                else
+                {
+                    return 2;
+                }
+
+                return salida;
             }
             catch (Exception e)
             {

@@ -9,8 +9,12 @@ namespace AtlantidaApplicationAPI.Models
         public int idproducto { get; set; }
         public DateTime? fchsolicitud { get; set; }
         public DateTime? fchaprobacion { get; set; }
-        public float? saldoaprobado { get; set; }
-        public float? saldodisponible { get; set; }
+        public double? saldoaprobado { get; set; }
+        public double? saldodisponible { get; set; }
         public string estado { get; set; }
+
+        // IGNORE
+        public string? cliente { get; set; }
+        public string? producto { get; set; }
     }
 }

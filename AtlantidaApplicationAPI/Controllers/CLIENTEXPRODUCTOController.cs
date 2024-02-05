@@ -9,10 +9,15 @@ namespace AtlantidaApplicationAPI.Controllers
     public class CLIENTEXPRODUCTOController : ControllerBase
     {
         private readonly IService_CLIENTEXPRODUCTO _service;
+        private readonly IService_PERSONA _cli;
+        private readonly IService_PRODUCTO _product;
+        private readonly string empty;
 
-        public CLIENTEXPRODUCTOController(IService_CLIENTEXPRODUCTO service)
+        public CLIENTEXPRODUCTOController(IService_CLIENTEXPRODUCTO service, IService_PERSONA cli, IService_PRODUCTO product)
         {
             _service = service;
+            _cli = cli;
+            _product = product;
         }
 
         Dictionary<string, object> Response = new Dictionary<string, object>();
@@ -25,6 +30,25 @@ namespace AtlantidaApplicationAPI.Controllers
             try
             {
                 var exit = await _service.CLIENTEXPRODUCTO_SELECT(model, "TODO", "");
+                var modelClie = new PERSONA();
+                var clientes = await _cli.PERSONA_SELECT(modelClie, "TODO", "");
+                var modelPro = new PRODUCTO();
+                var productos = await _product.PRODUCTO_SELECT(modelPro, "TODO", "");
+
+                foreach (var item in exit)
+                {
+                    item.cliente = item.idcliente != null
+                        ? clientes.Where(s => s.id == item.idcliente) != null
+                            ? clientes.FirstOrDefault(s => s.id == item.idcliente).nombres
+                            : empty
+                        : empty;
+
+                    item.producto = item.idproducto != null
+                        ? productos.Where(s => s.id == item.idproducto) != null
+                            ? productos.FirstOrDefault(s => s.id == item.idproducto).descripcion
+                            : empty
+                        : empty;
+                }
 
                 if (exit.Any())
                 {

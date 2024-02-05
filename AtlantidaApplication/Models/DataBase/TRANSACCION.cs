@@ -9,7 +9,7 @@
         public int idproducto { get; set; }
         public int? idagencia { get; set; }
         public DateTime? fechahora { get; set; }
-        public float? monto { get; set; }
+        public double? monto { get; set; }
         public string? descripcion { get; set; }
         public string estado { get; set; }
     }
