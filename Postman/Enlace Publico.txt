@@ -1,0 +1,3 @@
+CABE RECALCAR QUE EL API SE CORRE LOCAL Y NO ESTA ALOJADA POR LA TANTO SOLO SE LO ENVIO COMO OTRO METODO MAS POR SI FALLA EL EXPORT
+
+https://www.postman.com/j0su22/workspace/atlantida/collection/21301585-7be3d5a0-dfec-4a3c-9041-66b9140f2da5?action=share&creator=21301585

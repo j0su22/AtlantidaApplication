@@ -1,0 +1,311 @@
+{
+	"info": {
+		"_postman_id": "7be3d5a0-dfec-4a3c-9041-66b9140f2da5",
+		"name": "API Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21301585",
+		"_collection_link": "https://www.postman.com/j0su22/workspace/atlantida/collection/21301585-7be3d5a0-dfec-4a3c-9041-66b9140f2da5?action=share&source=collection_link&creator=21301585"
+	},
+	"item": [
+		{
+			"name": "Get Agencias",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"nombre\": \"string\",\r\n  \"direccion\": \"string\",\r\n  \"telefono\": \"string\",\r\n  \"extension\": \"string\",\r\n  \"estado\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44341/AGENCIA/api/Get",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44341",
+					"path": [
+						"AGENCIA",
+						"api",
+						"Get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cargos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"nombre\": \"string\",\r\n  \"descripcion\": \"string\",\r\n  \"estado\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44341/CARGO/api/Get",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44341",
+					"path": [
+						"CARGO",
+						"api",
+						"Get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Personas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"dui\": \"string\",\r\n  \"nombres\": \"string\",\r\n  \"apellidos\": \"string\",\r\n  \"correo\": \"string\",\r\n  \"telefono\": \"string\",\r\n  \"fchnacimiento\": \"2024-02-05T05:51:13.398Z\",\r\n  \"flgejecutivo\": \"string\",\r\n  \"estado\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44341/PERSONA/api/Get",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44341",
+					"path": [
+						"PERSONA",
+						"api",
+						"Get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Ejecutivos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"idpersona\": 0,\r\n  \"idagencia\": 0,\r\n  \"idcargo\": 0,\r\n  \"estado\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44341/EJECUTIVO/api/Get",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44341",
+					"path": [
+						"EJECUTIVO",
+						"api",
+						"Get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Productos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"codigo\": \"string\",\r\n  \"nombre\": \"string\",\r\n  \"descripcion\": \"string\",\r\n  \"ptjinteres\": 0,\r\n  \"ptjsaldominimo\": 0,\r\n  \"rngminimo\": 0,\r\n  \"rngmaximo\": 0,\r\n  \"estado\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44341/PRODUCTO/api/Get",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44341",
+					"path": [
+						"PRODUCTO",
+						"api",
+						"Get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Productos de Clientes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"idcliente\": 0,\r\n  \"idproducto\": 0,\r\n  \"fchsolicitud\": \"2024-02-05T07:35:08.578Z\",\r\n  \"fchaprobacion\": \"2024-02-05T07:35:08.578Z\",\r\n  \"saldoaprobado\": 0,\r\n  \"saldodisponible\": 0,\r\n  \"estado\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44341/CLIENTEXPRODUCTO/api/Get",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44341",
+					"path": [
+						"CLIENTEXPRODUCTO",
+						"api",
+						"Get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Tipos de Transacción",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"codigo\": \"string\",\r\n  \"nombre\": \"string\",\r\n  \"descripcion\": \"string\",\r\n  \"estado\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44341/TIPOTRANSACCION/api/Get",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44341",
+					"path": [
+						"TIPOTRANSACCION",
+						"api",
+						"Get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Todas las Transacción",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"idtipotransaccion\": 0,\r\n  \"idcliente\": 0,\r\n  \"idejecutivo\": 0,\r\n  \"idproducto\": 0,\r\n  \"idagencia\": 0,\r\n  \"fechahora\": \"2024-02-05T06:19:56.372Z\",\r\n  \"monto\": 0,\r\n  \"descripcion\": \"string\",\r\n  \"estado\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44341/TRANSACCION/api/Get",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44341",
+					"path": [
+						"TRANSACCION",
+						"api",
+						"Get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert Gasto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idtipotransaccion\": 2,\r\n  \"idcliente\": 5,\r\n  \"idejecutivo\": 1,\r\n  \"idproducto\": 3,\r\n  \"idagencia\": 1,\r\n  \"fechahora\": \"2024-02-05T07:38:55.266Z\",\r\n  \"monto\": 200,\r\n  \"descripcion\": \"Compas de navidad\",\r\n  \"estado\": \"A\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44341/TRANSACCION/api/InsertGto",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44341",
+					"path": [
+						"TRANSACCION",
+						"api",
+						"InsertGto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert Abono",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idtipotransaccion\": 1,\r\n  \"idcliente\": 5,\r\n  \"idejecutivo\": 1,\r\n  \"idproducto\": 3,\r\n  \"idagencia\": 1,\r\n  \"fechahora\": \"2024-02-05T07:38:55.266Z\",\r\n  \"monto\": 400,\r\n  \"descripcion\": \"Abono a cuenta\",\r\n  \"estado\": \"A\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44341/TRANSACCION/api/InsertIng",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44341",
+					"path": [
+						"TRANSACCION",
+						"api",
+						"InsertIng"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
